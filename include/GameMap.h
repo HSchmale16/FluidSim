@@ -19,7 +19,8 @@ public:
     GameMap(int w, int h);
     virtual ~GameMap();
 
-    void generateRandom(void(*func)(int x, int y, GameTile&));
+    void generateRandom(void(*func)(int x, int y, int w,
+                                    int h, GameTile&));
     void tick();
 private:
     Array2d<GameTile> _map;

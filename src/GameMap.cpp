@@ -9,10 +9,10 @@ GameMap::GameMap(int w, int h)
 GameMap::~GameMap() {
 }
 
-void GameMap::generateRandom(void (*func)(int x, int y, GameTile&)) {
+void GameMap::generateRandom(void (*func)(int,int,int,int, GameTile&)) {
     for(int i = 0; i < 100; i++){
         for(int j = 0; j < 100; j++){
-            func(i, j, _map(i, j));
+            func(i, j, _map.getWidth(), _map.getHeight(), _map(i, j));
         }
     }
 }

@@ -32,11 +32,16 @@ private:
 template<typename T>
 Array2d<T>::Array2d(uint64_t w, uint64_t h) {
     //ctor
+    _height = h;
+    _width = w;
+    _size = w * h;
+    _data = new T[_size];
 }
 
 template<typename T>
 Array2d<T>::~Array2d() {
     //dtor
+    delete[] _data;
 }
 
 template<typename T>
