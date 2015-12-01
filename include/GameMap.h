@@ -8,7 +8,7 @@
 
 struct GameTile {
     int height;
-    int water;
+    float water;
 
     GameTile() {
         height = 1.0f;
@@ -22,13 +22,15 @@ public:
     virtual ~GameMap();
 
     void generateRandom(void(*func)(int x, int y, int w,
-                                    int h, GameTile&));
+            int h, GameTile&));
     void tick();
 
     const GameTile& operator()(int x, int y);
 private:
     Array2d<GameTile> _map;
     std::vector<Emitter> _emitters;
+
+    void tickTile(int x, int y);
 };
 
 #endif // GAMEMAP_H

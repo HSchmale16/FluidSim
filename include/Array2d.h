@@ -45,7 +45,7 @@ Array2d<T>::~Array2d() {
 }
 
 template<typename T>
-T& Array2d<T>::operator()(uint64_t x, uint64_t y){
+T& Array2d<T>::operator()(uint64_t x, uint64_t y) {
     assert(_data);
     return _data[y * _width + x];
 }
