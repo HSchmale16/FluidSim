@@ -2,11 +2,13 @@
 #define GAMEMAP_H
 
 #include <cstddef>
+#include <vector>
 #include "Array2d.h"
+#include "Emitter.h"
 
 struct GameTile {
-    float height;
-    float water;
+    int height;
+    int water;
 
     GameTile() {
         height = 1.0f;
@@ -22,8 +24,11 @@ public:
     void generateRandom(void(*func)(int x, int y, int w,
                                     int h, GameTile&));
     void tick();
+
+    const GameTile& operator()(int x, int y);
 private:
     Array2d<GameTile> _map;
+    std::vector<Emitter> _emitters;
 };
 
 #endif // GAMEMAP_H
